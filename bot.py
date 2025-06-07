@@ -84,34 +84,61 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     if user_id == OWNER_ID:
         keyboard = [
+<<<<<<< HEAD
             [KeyboardButton("ðŸ“Š Statistika"), KeyboardButton("ðŸ“¢ Xabar yuborish")],
             [KeyboardButton("ðŸ‘¥ Guruhlarni ko'rish"), KeyboardButton("âš™ï¸ Sozlamalar")]
+=======
+            [KeyboardButton("📊 Statistika"), KeyboardButton("📢 Xabar yuborish")],
+            [KeyboardButton("👥 Guruhlarni ko'rish"), KeyboardButton("⚙️ Sozlamalar")]
+>>>>>>> d7639d9 (First commit)
         ]
         reply_markup = ReplyKeyboardMarkup(keyboard, resize_keyboard=True)
         
         await update.message.reply_text(
+<<<<<<< HEAD
             "ðŸ”¥ Salom, bot egasi!\n\n"
             "ðŸ“Š Statistika - bot statistikalarini ko'rish\n"
             "ðŸ“¢ Xabar yuborish - barcha guruhlarga xabar yuborish\n"
             "ðŸ‘¥ Guruhlarni ko'rish - ulangan guruhlar ro'yxati\n"
             "âš™ï¸ Sozlamalar - bot sozlamalari",
+=======
+            "🔥 Salom, bot egasi!\n\n"
+            "📊 Statistika - bot statistikalarini ko'rish\n"
+            "📢 Xabar yuborish - barcha guruhlarga xabar yuborish\n"
+            "👥 Guruhlarni ko'rish - ulangan guruhlar ro'yxati\n"
+            "⚙️ Sozlamalar - bot sozlamalari",
+>>>>>>> d7639d9 (First commit)
             reply_markup=reply_markup
         )
     else:
         # Guruh adminlari uchun
         keyboard = [
+<<<<<<< HEAD
             [KeyboardButton("âž• Guruh qo'shish")],
             [KeyboardButton("ðŸ“‹ Mening guruhlarim"), KeyboardButton("ðŸ“º Kanal sozlash")]
+=======
+            [KeyboardButton("➕ Guruh qo'shish")],
+            [KeyboardButton("📋 Mening guruhlarim"), KeyboardButton("📺 Kanal sozlash")]
+>>>>>>> d7639d9 (First commit)
         ]
         reply_markup = ReplyKeyboardMarkup(keyboard, resize_keyboard=True)
         
         await update.message.reply_text(
+<<<<<<< HEAD
             "ðŸ‘‹ Assalomu alaykum!\n\n"
             "ðŸ¤– Men guruhlarni boshqaruvchi botman. Men quyidagi vazifalarni bajaraman:\n\n"
             "âœ… Majburiy obuna nazorati\n"
             "ðŸš« Reklama havolalarni o'chirish\n"
             "ðŸ›¡ï¸ Zararli .apk fayllarni o'chirish\n"
             "ðŸ“Š Guruh faoliyatini nazorat qilish\n\n"
+=======
+            "👋 Assalomu alaykum!\n\n"
+            "🤖 Men guruhlarni boshqaruvchi botman. Men quyidagi vazifalarni bajaraman:\n\n"
+            "✅ Majburiy obuna nazorati\n"
+            "🚫 Reklama havolalarni o'chirish\n"
+            "🛡️ Zararli .apk fayllarni o'chirish\n"
+            "📊 Guruh faoliyatini nazorat qilish\n\n"
+>>>>>>> d7639d9 (First commit)
             "Botdan foydalanish uchun quyidagi tugmalardan foydalaning:",
             reply_markup=reply_markup
         )
@@ -135,11 +162,16 @@ async def handle_owner_messages(update: Update, context: ContextTypes.DEFAULT_TY
     text = update.message.text
     user_id = update.effective_user.id
     
+<<<<<<< HEAD
     if text == "ðŸ“Š Statistika":
+=======
+    if text == "📊 Statistika":
+>>>>>>> d7639d9 (First commit)
         total_groups = len(bot_instance.groups_data)
         total_users = len(bot_instance.users_data)
         
         await update.message.reply_text(
+<<<<<<< HEAD
             f"ðŸ“Š Bot statistikasi:\n\n"
             f"ðŸ‘¥ Ulangan guruhlar: {total_groups}\n"
             f"ðŸ‘¤ Foydalanuvchilar: {total_users}\n"
@@ -147,39 +179,69 @@ async def handle_owner_messages(update: Update, context: ContextTypes.DEFAULT_TY
         )
     
     elif text == "ðŸ“¢ Xabar yuborish":
+=======
+            f"📊 Bot statistikasi:\n\n"
+            f"👥 Ulangan guruhlar: {total_groups}\n"
+            f"👤 Foydalanuvchilar: {total_users}\n"
+            f"📅 Oxirgi yangilanish: {datetime.now().strftime('%d.%m.%Y %H:%M')}"
+        )
+    
+    elif text == "📢 Xabar yuborish":
+>>>>>>> d7639d9 (First commit)
         context.user_data['sending_broadcast'] = True
         context.user_data['broadcast_messages'] = []
         
         await update.message.reply_text(
+<<<<<<< HEAD
             "ðŸ“ Barcha guruhlarga yubormoqchi bo'lgan xabaringizni yuboring.\n"
+=======
+            "📝 Barcha guruhlarga yubormoqchi bo'lgan xabaringizni yuboring.\n"
+>>>>>>> d7639d9 (First commit)
             "Bu matn, rasm, video yoki boshqa fayl bo'lishi mumkin.\n\n"
             "/korish - xabar postini ko'rish\n"
             "/yubor - xabarni yuborish\n"
             "/qaytar - bekor qilish"
         )
     
+<<<<<<< HEAD
     elif text == "ðŸ‘¥ Guruhlarni ko'rish":
         if not bot_instance.groups_data:
             await update.message.reply_text("âŒ Hozircha birorta guruh ulanmagan.")
+=======
+    elif text == "👥 Guruhlarni ko'rish":
+        if not bot_instance.groups_data:
+            await update.message.reply_text("❌ Hozircha birorta guruh ulanmagan.")
+>>>>>>> d7639d9 (First commit)
             return
         
         keyboard = []
         for group_id, group_info in bot_instance.groups_data.items():
             group_name = group_info.get('title', f'Guruh {group_id}')
             keyboard.append([InlineKeyboardButton(
+<<<<<<< HEAD
                 f"ðŸ‘¥ {group_name}", 
+=======
+                f"👥 {group_name}", 
+>>>>>>> d7639d9 (First commit)
                 callback_data=f"group_info_{group_id}"
             )])
         
         reply_markup = InlineKeyboardMarkup(keyboard)
         await update.message.reply_text(
+<<<<<<< HEAD
             "ðŸ‘¥ Ulangan guruhlar ro'yxati:",
+=======
+            "👥 Ulangan guruhlar ro'yxati:",
+>>>>>>> d7639d9 (First commit)
             reply_markup=reply_markup
         )
     
     elif context.user_data.get('sending_broadcast'):
         await handle_broadcast_content(update, context)
+<<<<<<< HEAD
 from telegram import KeyboardButton, KeyboardButtonRequestChat, ReplyKeyboardMarkup, InlineKeyboardButton, InlineKeyboardMarkup
+=======
+>>>>>>> d7639d9 (First commit)
 
 async def handle_user_messages(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Oddiy foydalanuvchi xabarlarini qayta ishlash"""
@@ -187,6 +249,7 @@ async def handle_user_messages(update: Update, context: ContextTypes.DEFAULT_TYP
     user_id = update.effective_user.id
     
     if text == "➕ Guruh qo'shish":
+<<<<<<< HEAD
         # TO'G'RI usul - KeyboardButtonRequestChat obyektini ishlatish
         keyboard = [[KeyboardButton(
             "📤 Guruhlarni ulashish", 
@@ -201,6 +264,9 @@ async def handle_user_messages(update: Update, context: ContextTypes.DEFAULT_TYP
                 bot_is_member=None
             )
         )]]
+=======
+        keyboard = [[KeyboardButton("📤 Guruhlarni ulashish", request_chat=True)]]
+>>>>>>> d7639d9 (First commit)
         reply_markup = ReplyKeyboardMarkup(keyboard, resize_keyboard=True, one_time_keyboard=True)
         
         await update.message.reply_text(
@@ -215,7 +281,11 @@ async def handle_user_messages(update: Update, context: ContextTypes.DEFAULT_TYP
                 user_groups.append((group_id, group_info))
         
         if not user_groups:
+<<<<<<< HEAD
             await update.message.reply_text("⌛ Sizda hozircha guruhlar yo'q.")
+=======
+            await update.message.reply_text("❌ Sizda hozircha guruhlar yo'q.")
+>>>>>>> d7639d9 (First commit)
             return
         
         keyboard = []
@@ -237,6 +307,10 @@ async def handle_user_messages(update: Update, context: ContextTypes.DEFAULT_TYP
             "📺 Kanal sozlash uchun avval guruhingizni tanlang.\n"
             "📋 'Mening guruhlarim' tugmasini bosing."
         )
+<<<<<<< HEAD
+=======
+
+>>>>>>> d7639d9 (First commit)
 async def handle_group_messages(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Guruh xabarlarini qayta ishlash"""
     message = update.message
@@ -260,11 +334,19 @@ async def handle_group_messages(update: Update, context: ContextTypes.DEFAULT_TY
         try:
             await message.delete()
             warning_msg = await message.reply_text(
+<<<<<<< HEAD
                 f"âš ï¸ {user.first_name}, guruhda yozish uchun kanalga obuna bo'ling!\n\n"
                 f"ðŸ“º Kanal: {MANDATORY_CHANNEL}\n\n"
                 f"Obuna bo'lgandan keyin qaytadan yozing.",
                 reply_markup=InlineKeyboardMarkup([[
                     InlineKeyboardButton("ðŸ“º Kanalga o'tish", url=f"https://t.me/{MANDATORY_CHANNEL[1:]}")
+=======
+                f"⚠️ {user.first_name}, guruhda yozish uchun kanalga obuna bo'ling!\n\n"
+                f"📺 Kanal: {MANDATORY_CHANNEL}\n\n"
+                f"Obuna bo'lgandan keyin qaytadan yozing.",
+                reply_markup=InlineKeyboardMarkup([[
+                    InlineKeyboardButton("📺 Kanalga o'tish", url=f"https://t.me/{MANDATORY_CHANNEL[1:]}")
+>>>>>>> d7639d9 (First commit)
                 ]])
             )
             # Ogohlantirish xabarini 30 soniyadan keyin o'chirish
@@ -281,7 +363,11 @@ async def handle_group_messages(update: Update, context: ContextTypes.DEFAULT_TY
         try:
             await message.delete()
             warning_msg = await message.reply_text(
+<<<<<<< HEAD
                 f"ðŸš« {user.first_name}, reklama havolalar taqiqlanadi!\n"
+=======
+                f"🚫 {user.first_name}, reklama havolalar taqiqlanadi!\n"
+>>>>>>> d7639d9 (First commit)
                 f"Iltimos, reklama tarqatmang!",
                 reply_to_message_id=None
             )
@@ -299,7 +385,11 @@ async def handle_group_messages(update: Update, context: ContextTypes.DEFAULT_TY
             try:
                 await message.delete()
                 warning_msg = await message.reply_text(
+<<<<<<< HEAD
                     f"âš ï¸ {user.first_name}, APK fayllar xavfli bo'lishi mumkin!\n"
+=======
+                    f"⚠️ {user.first_name}, APK fayllar xavfli bo'lishi mumkin!\n"
+>>>>>>> d7639d9 (First commit)
                     f"Zararli virusli fayllar tarqatmang!",
                     reply_to_message_id=None
                 )
@@ -349,18 +439,30 @@ async def handle_broadcast_content(update: Update, context: ContextTypes.DEFAULT
     if update.message.text:
         if update.message.text == "/korish":
             if not context.user_data.get('broadcast_messages'):
+<<<<<<< HEAD
                 await update.message.reply_text("âŒ Hozircha xabar qo'shilmagan.")
                 return
             
             await update.message.reply_text(
                 f"ðŸ“‹ Joriy xabar posti ({len(context.user_data['broadcast_messages'])} ta xabar):\n\n"
+=======
+                await update.message.reply_text("❌ Hozircha xabar qo'shilmagan.")
+                return
+            
+            await update.message.reply_text(
+                f"📋 Joriy xabar posti ({len(context.user_data['broadcast_messages'])} ta xabar):\n\n"
+>>>>>>> d7639d9 (First commit)
                 "Xabarlarni ko'rish uchun /yubor tugmasini bosing."
             )
             return
         
         elif update.message.text == "/yubor":
             if not context.user_data.get('broadcast_messages'):
+<<<<<<< HEAD
                 await update.message.reply_text("âŒ Yuborish uchun xabar qo'shing.")
+=======
+                await update.message.reply_text("❌ Yuborish uchun xabar qo'shing.")
+>>>>>>> d7639d9 (First commit)
                 return
             
             await send_broadcast(update, context)
@@ -369,7 +471,11 @@ async def handle_broadcast_content(update: Update, context: ContextTypes.DEFAULT
         elif update.message.text == "/qaytar":
             context.user_data['sending_broadcast'] = False
             context.user_data['broadcast_messages'] = []
+<<<<<<< HEAD
             await update.message.reply_text("âœ… Operatsiya bekor qilindi.")
+=======
+            await update.message.reply_text("✅ Operatsiya bekor qilindi.")
+>>>>>>> d7639d9 (First commit)
             return
     
     # Xabarni saqlash
@@ -383,24 +489,42 @@ async def handle_broadcast_content(update: Update, context: ContextTypes.DEFAULT
     })
     
     await update.message.reply_text(
+<<<<<<< HEAD
         f"âœ… Xabar postga qo'shildi ({len(context.user_data['broadcast_messages'])} ta xabar).\n\n"
         "/korish â€” xabar postini ko'rish\n"
         "/yubor â€” xabarni yuborish\n"
         "/qaytar â€” bekor qilish"
+=======
+        f"✅ Xabar postga qo'shildi ({len(context.user_data['broadcast_messages'])} ta xabar).\n\n"
+        "/korish — xabar postini ko'rish\n"
+        "/yubor — xabarni yuborish\n"
+        "/qaytar — bekor qilish"
+>>>>>>> d7639d9 (First commit)
     )
 
 async def send_broadcast(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Barcha guruhlarga xabar yuborish"""
     if not bot_instance.groups_data:
+<<<<<<< HEAD
         await update.message.reply_text("âŒ Guruhlar topilmadi.")
+=======
+        await update.message.reply_text("❌ Guruhlar topilmadi.")
+>>>>>>> d7639d9 (First commit)
         return
     
     messages = context.user_data.get('broadcast_messages', [])
     if not messages:
+<<<<<<< HEAD
         await update.message.reply_text("âŒ Yuborish uchun xabar yo'q.")
         return
     
     status_msg = await update.message.reply_text("ðŸ“¤ Xabar yuborilmoqda...")
+=======
+        await update.message.reply_text("❌ Yuborish uchun xabar yo'q.")
+        return
+    
+    status_msg = await update.message.reply_text("📤 Xabar yuborilmoqda...")
+>>>>>>> d7639d9 (First commit)
     
     success_count = 0
     failed_count = 0
@@ -439,9 +563,15 @@ async def send_broadcast(update: Update, context: ContextTypes.DEFAULT_TYPE):
             print(f"Guruhga yuborishda xatolik {group_id}: {e}")
     
     await status_msg.edit_text(
+<<<<<<< HEAD
         f"âœ… Xabar yuborish yakunlandi!\n\n"
         f"ðŸ“¤ Muvaffaqiyatli: {success_count}\n"
         f"âŒ Xatolik: {failed_count}"
+=======
+        f"✅ Xabar yuborish yakunlandi!\n\n"
+        f"📤 Muvaffaqiyatli: {success_count}\n"
+        f"❌ Xatolik: {failed_count}"
+>>>>>>> d7639d9 (First commit)
     )
     
     # Ma'lumotlarni tozalash
@@ -460,10 +590,17 @@ async def callback_query_handler(update: Update, context: ContextTypes.DEFAULT_T
         group_id = data.split("_")[-1]
         group_info = bot_instance.groups_data.get(group_id, {})
         
+<<<<<<< HEAD
         text = f"ðŸ‘¥ Guruh: {group_info.get('title', 'Noma\'lum')}\n"
         text += f"ðŸ†” ID: {group_id}\n"
         text += f"ðŸ“… Qo'shilgan: {group_info.get('added_date', 'Noma\'lum')}\n"
         text += f"ðŸ“º Majburiy kanallar: {len(group_info.get('mandatory_channels', []))}"
+=======
+        text = f"👥 Guruh: {group_info.get('title', 'Noma\'lum')}\n"
+        text += f"🆔 ID: {group_id}\n"
+        text += f"📅 Qo'shilgan: {group_info.get('added_date', 'Noma\'lum')}\n"
+        text += f"📺 Majburiy kanallar: {len(group_info.get('mandatory_channels', []))}"
+>>>>>>> d7639d9 (First commit)
         
         await query.edit_message_text(text)
     
@@ -472,12 +609,21 @@ async def callback_query_handler(update: Update, context: ContextTypes.DEFAULT_T
         group_info = bot_instance.groups_data.get(group_id, {})
         
         keyboard = [
+<<<<<<< HEAD
             [InlineKeyboardButton("ðŸ“º Kanal qo'shish", callback_data=f"add_channel_{group_id}")],
             [InlineKeyboardButton("ðŸ“‹ Kanallar ro'yxati", callback_data=f"list_channels_{group_id}")],
             [InlineKeyboardButton("ðŸ”™ Orqaga", callback_data="back_to_groups")]
         ]
         
         text = f"ðŸ‘¥ {group_info.get('title', 'Noma\'lum guruh')}\n\n"
+=======
+            [InlineKeyboardButton("📺 Kanal qo'shish", callback_data=f"add_channel_{group_id}")],
+            [InlineKeyboardButton("📋 Kanallar ro'yxati", callback_data=f"list_channels_{group_id}")],
+            [InlineKeyboardButton("🔙 Orqaga", callback_data="back_to_groups")]
+        ]
+        
+        text = f"👥 {group_info.get('title', 'Noma\'lum guruh')}\n\n"
+>>>>>>> d7639d9 (First commit)
         text += "Quyidagi amallarni tanlang:"
         
         await query.edit_message_text(text, reply_markup=InlineKeyboardMarkup(keyboard))
@@ -492,7 +638,11 @@ def main():
     application.add_handler(MessageHandler(filters.PHOTO | filters.VIDEO | filters.Document.ALL, handle_text_messages))
     application.add_handler(CallbackQueryHandler(callback_query_handler))
     
+<<<<<<< HEAD
     print("ðŸ¤– Bot ishga tushdi!")
+=======
+    print("🤖 Bot ishga tushdi!")
+>>>>>>> d7639d9 (First commit)
     application.run_polling()
 
 if __name__ == "__main__":

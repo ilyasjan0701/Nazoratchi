@@ -21,7 +21,11 @@ ADMIN_POSTS_FILE = "data/admin_posts.json"
 SPAM_KEYWORDS = [
     'reklama', 'sotiladi', 'sotuvda', 'chegirma', 'aktsiya',
     'bonus', 'tekin', 'bepul', 'arzon', 'ishonchli',
+<<<<<<< HEAD
     'tez', 'buyurtma', 'zakaz', 'Ð´Ð¾ÑÑ‚Ð°Ð²ÐºÐ°'
+=======
+    'tez', 'buyurtma', 'zakaz', 'доставка'
+>>>>>>> d7639d9 (First commit)
 ]
 
 # Taqiqlangan fayl turlari
